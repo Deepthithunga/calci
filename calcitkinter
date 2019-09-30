@@ -1,0 +1,58 @@
+from tkinter import*
+
+root=Tk()
+equa=""
+
+equation=StringVar()
+
+calculation=Label(root,textvariable=equation)
+equation.set("0")
+calculation.grid(columnspan=4)
+def buttonPress(num):
+    global equa
+    equa=equa+str(num)
+    equation.set(equa)
+
+def result():
+    global equa
+    total=str(eval(equa))
+    equation.set(total)
+    equa=""
+def clearfun():
+    global equa 
+    equa=""
+    equation.set("")
+    
+Button0=Button(root,text="1",command=lambda:buttonPress(1))
+Button0.grid(row=1,column=0)            
+Button1=Button(root,text="2",command=lambda:buttonPress(2))
+Button1.grid(row=1,column=1)
+Button2=Button(root,text="3",command=lambda:buttonPress(3))
+Button2.grid(row=1,column=2)
+Button3=Button(root,text="4",command=lambda:buttonPress(4))
+Button3.grid(row=2,column=0)
+Button4=Button(root,text="5",command=lambda:buttonPress(5))
+Button4.grid(row=2,column=1)
+Button5=Button(root,text="6",command=lambda:buttonPress(6))
+Button5.grid(row=2,column=2)
+Button6=Button(root,text="7",command=lambda:buttonPress(7))
+Button6.grid(row=3,column=0)
+Button7=Button(root,text="8",command=lambda:buttonPress(8))
+Button7.grid(row=3,column=1)
+Button8=Button(root,text="9",command=lambda:buttonPress(9))
+Button8.grid(row=3,column=2)
+Button9=Button(root,text="0",command=lambda:buttonPress(0))
+Button9.grid(row=4,column=1)
+Button10=Button(root,text="C",command=clearfun)
+Button10.grid(row=4,column=0)
+Button11=Button(root,text="/",command=lambda:buttonPress("/"))
+Button11.grid(row=4,column=2)
+Button12=Button(root,text="+",command=lambda:buttonPress("+"))
+Button12.grid(row=1,column=3)
+Button13=Button(root,text="-",command=lambda:buttonPress("-"))
+Button13.grid(row=2,column=3)
+Button14=Button(root,text="*",command=lambda:buttonPress("*"))
+Button14.grid(row=3,column=3)
+Button15=Button(root,text="=",command=result)
+Button15.grid(row=4,column=3)
+root.mainloop()
